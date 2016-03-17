@@ -1,0 +1,16 @@
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\CheckersContent.exe
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\CheckersContent.pdb
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\Microsoft.Xna.Framework.dll
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\Microsoft.Xna.Framework.xml
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\obj\x86\Debug\CheckersContent.csprojResolveAssemblyReference.cache
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\obj\x86\Debug\CheckersContent.exe
+\\Mac\Home\Desktop\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\obj\x86\Debug\CheckersContent.pdb
