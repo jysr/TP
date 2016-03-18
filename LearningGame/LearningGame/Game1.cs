@@ -20,13 +20,13 @@ namespace LearningGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+    
         ParallaxingBackground bgLayer1;
         ParallaxingBackground bgLayer2;
         // Enemies
 
         Texture2D enemyTexture;
-
+        MainMenu menu;
         List<Enemy> enemies;
 
         // The rate at which the enemies appear
@@ -51,7 +51,8 @@ namespace LearningGame
         Texture2D mainBackground;
         Texture2D endGame;
         Rectangle rectBackground;
-
+        private SpriteFont Font;
+        string Score;
         float scale = 1f;
         // Represents the player
 
@@ -83,6 +84,8 @@ namespace LearningGame
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            graphics.IsFullScreen = false;
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -93,8 +96,10 @@ namespace LearningGame
         /// </summary>
         protected override void Initialize()
         {
-            
+
             // TODO: Add your initialization logic here
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 800;
             player = new Player();
             
             bgLayer1 = new ParallaxingBackground();
@@ -123,9 +128,10 @@ namespace LearningGame
 
             // Initialize our random number generator
 
+            menu = new MainMenu();
 
 
-
+            Score = String.Format("Score {0}", player.scoreValue);
 
             random = new Random();
             // init our laser
@@ -160,7 +166,8 @@ namespace LearningGame
             // load th texture to serve as the laser
             laserTexture = Content.Load<Texture2D>("Graphics\\laser");
 
-
+            // load Font
+            Font = Content.Load<SpriteFont>("Graphics\\gameFont");
             // Load the player resources
 
             Animation playerAnimation = new Animation();
@@ -169,7 +176,7 @@ namespace LearningGame
             Rectangle titleSafeArea = GraphicsDevice.Viewport.TitleSafeArea;
             playerAnimation.Initialize(playerTexture, Vector2.Zero, 115, 69, 8, 30, Color.White, 1f, true);
 
-
+            menu.LoadContent(Content, new Size(800, 600));
 
             Vector2 playerPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X,
 
@@ -214,12 +221,12 @@ namespace LearningGame
             previousKeyboardState = currentKeyboardState;
 
             // Read the current state of the keyboard and gamepad and store it
-
+            
             currentKeyboardState = Keyboard.GetState();
 
             currentGamePadState = GamePad.GetState(PlayerIndex.One);
             //Update the player
-
+           
             UpdatePlayer(gameTime);
             //UpdateEnemies
             UpdateEnemies(gameTime);
@@ -237,12 +244,15 @@ namespace LearningGame
                 }
             }
 
-
+            menu.Update();
             if (currentKeyboardState.IsKeyDown(Keys.Space) || currentGamePadState.Buttons.X == ButtonState.Pressed)
             {
                 FireLaser(gameTime);
             }
-
+            if (currentKeyboardState.IsKeyDown(Keys.Enter) || currentGamePadState.Buttons.Y == ButtonState.Pressed)
+            {
+                Initialize();
+            }
             bgLayer1.Update(gameTime);
 
             bgLayer2.Update(gameTime);
@@ -251,6 +261,7 @@ namespace LearningGame
 
             base.Update(gameTime);
         }
+      
         private void UpdatePlayer(GameTime gameTime)
 
         {
@@ -558,10 +569,10 @@ namespace LearningGame
                     // test the bounds of the laer and enemy
                     if (laserRectangle.Intersects(rectangle2))
                     {
-                  
 
-                       
 
+                        //Update Score
+                        player.scoreValue += 10;
                         // kill off the enemy
                         e.Health = 0;
 
@@ -592,8 +603,7 @@ namespace LearningGame
 
             spriteBatch.Begin();
 
-
-
+           
 
 
             //Draw the Main Background Texture
@@ -628,9 +638,18 @@ namespace LearningGame
             player.Draw(spriteBatch);
             // Stop drawing
 
+            menu.Draw(spriteBatch);
             if (!player.Active)
+            {
                 spriteBatch.Draw(endGame, rectBackground, Color.White);
+                spriteBatch.DrawString(Font, String.Format("Press: Enter to contue", player.scoreValue), new Vector2(250, 250), Color.Blue);
+                spriteBatch.DrawString(Font, String.Format("Press: Esc to end it", player.scoreValue), new Vector2(250, 300), Color.Blue);
+            }
+            spriteBatch.DrawString(Font, String.Format("Score: {0}", player.scoreValue), new Vector2(0, 0), Color.Blue);
+            spriteBatch.DrawString(Font, String.Format("Health: {0}", player.Health), new Vector2(200, 0), Color.Blue);
+
             spriteBatch.End();
+
             base.Draw(gameTime);
         }
     }

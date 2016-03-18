@@ -56,6 +56,10 @@ namespace LearningGame
             get { return PlayerAnimation.FrameHeight; }
 
         }
+
+
+        public int scoreValue { get;  set; }
+
         public void Initialize(Animation animation, Vector2 position)
 
         {

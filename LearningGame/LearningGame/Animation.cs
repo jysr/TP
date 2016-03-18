@@ -113,7 +113,7 @@ namespace LearningGame
 
             // Do not update the game if we are not active
 
-            if (Active == false) return;
+            if (!Active) return;
 
             // Update the elapsed time
 
