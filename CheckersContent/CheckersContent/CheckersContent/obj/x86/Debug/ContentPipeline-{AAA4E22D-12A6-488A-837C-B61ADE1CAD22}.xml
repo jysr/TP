@@ -10,6 +10,24 @@
       <Output>C:\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\Content\Graphics\Field.xnb</Output>
       <Time>2016-03-20T00:42:29.5250529+03:00</Time>
     </Item>
+    <Item>
+      <Source>Graphics\black.png</Source>
+      <Name>Graphics\black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\Content\Graphics\black.xnb</Output>
+      <Time>2016-03-20T01:52:27.8042014+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Graphics\white.png</Source>
+      <Name>Graphics\white</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\Content\Graphics\white.xnb</Output>
+      <Time>2016-03-20T01:52:27.8102008+03:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{AAA4E22D-12A6-488A-837C-B61ADE1CAD22}</ContentProjectGUID>

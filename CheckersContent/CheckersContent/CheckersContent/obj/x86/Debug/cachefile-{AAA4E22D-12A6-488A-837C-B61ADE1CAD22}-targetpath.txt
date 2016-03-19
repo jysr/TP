@@ -1,1 +1,3 @@
 Content\Graphics\Field.xnb
+Content\Graphics\black.xnb
+Content\Graphics\white.xnb

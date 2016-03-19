@@ -33,11 +33,7 @@ namespace Checkers
         {
             // TODO: Add your initialization logic here
             board = new Background();
-            board.Initialze(Content, "Graphics\\Field", GraphicsDevice.Viewport.Width,
-
-               GraphicsDevice.Viewport.Height, new Vector2(0, 0), new Rectangle(0, 0, GraphicsDevice.Viewport.Width,
-
-               GraphicsDevice.Viewport.Height));
+            
             base.Initialize();
         }
 
@@ -51,6 +47,12 @@ namespace Checkers
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+
+            board.Initialze(Content, "Graphics\\Field", GraphicsDevice.Viewport.Width,
+
+               GraphicsDevice.Viewport.Height, new Vector2(0, 0), new Rectangle(0, 0, GraphicsDevice.Viewport.Width,
+
+               GraphicsDevice.Viewport.Height));
         }
 
         /// <summary>
