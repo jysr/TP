@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Checkers;
+
 
 namespace Checkers
 {
@@ -11,11 +13,14 @@ namespace Checkers
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        Background board;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            graphics.PreferredBackBufferWidth = 480;
+            graphics.PreferredBackBufferHeight = 480;
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -27,7 +32,12 @@ namespace Checkers
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            board = new Background();
+            board.Initialze(Content, "Graphics\\Field", GraphicsDevice.Viewport.Width,
 
+               GraphicsDevice.Viewport.Height, new Vector2(0, 0), new Rectangle(0, 0, GraphicsDevice.Viewport.Width,
+
+               GraphicsDevice.Viewport.Height));
             base.Initialize();
         }
 
@@ -76,7 +86,9 @@ namespace Checkers
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            spriteBatch.Begin();
+            board.Draw(spriteBatch);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
