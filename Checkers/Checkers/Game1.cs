@@ -57,33 +57,36 @@ namespace Checkers
                GraphicsDevice.Viewport.Height, new Vector2(0, 0), new Rectangle(0, 0, GraphicsDevice.Viewport.Width,
 
                GraphicsDevice.Viewport.Height));
-            int w = 0; int h1 = 0, h2 = 0;
+            int w1=0, w2 = 0; int h1 = 0, h2 = 0;
             for (int i = 0; i < 12; i++)
             {
                 Checker checkerw = new Checker();
                 Checker checkerb = new Checker();
                 if (i < 4)
                 {
-                    w = 0 + i * 120;
+                    w2 = 60 + i * 120;
+                    w1 = 0 + i * 120;
                     h1 = 420;
                     h2 = 0;
                 }
                 if ((4<=i) && (i<8))
                 {
-                    w = -420 + i * 120;
+                    w2 = -480 + i * 120;
+                    w1 = -420 + i * 120;
                     h1 = 360;
                     h2 = 60;
                 
                 }
                 if ((i < 12) && (8 <= i))
                 {
-                    w = -960 + i * 120;
+                    w2 = -900 + i * 120;
+                    w1 = -960 + i * 120;
                     h1 = 300;
                     h2 = 120;
                 }
-                checkerw.Initialize(Content, "Graphics\\white", new Vector2(w, h1), Color.White);
+                checkerw.Initialize(Content, "Graphics\\white", new Vector2(w1, h1), Color.White);
                 whitecheckers.Add(checkerw);
-                checkerb.Initialize(Content, "Graphics\\black", new Vector2(w, h2), Color.Black);
+                checkerb.Initialize(Content, "Graphics\\black", new Vector2(w2, h2), Color.Red);
                 blackcheckers.Add(checkerb);
             }
             

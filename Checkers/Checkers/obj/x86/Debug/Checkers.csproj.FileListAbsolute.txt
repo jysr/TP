@@ -23,6 +23,6 @@ C:\GitHub\TP\Checkers\Checkers\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\GitHub\TP\Checkers\Checkers\obj\x86\Debug\Checkers.csprojResolveAssemblyReference.cache
 C:\GitHub\TP\Checkers\Checkers\obj\x86\Debug\Checkers.exe
 C:\GitHub\TP\Checkers\Checkers\obj\x86\Debug\Checkers.pdb
-C:\GitHub\TP\Checkers\Checkers\bin\Windows\Debug\Content\Graphics\Field.xnb
 C:\GitHub\TP\Checkers\Checkers\bin\Windows\Debug\Content\Graphics\black.xnb
 C:\GitHub\TP\Checkers\Checkers\bin\Windows\Debug\Content\Graphics\white.xnb
+C:\GitHub\TP\Checkers\Checkers\bin\Windows\Debug\Content\Graphics\Field.xnb
