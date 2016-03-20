@@ -15,8 +15,7 @@ namespace Checkers
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Background board;
-        List<Checker> whitecheckers;
-        List<Checker> blackcheckers;
+        CheckersList checkerslist;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -36,8 +35,7 @@ namespace Checkers
         {
             // TODO: Add your initialization logic here
             board = new Background();
-            whitecheckers = new List<Checker>();
-            blackcheckers = new List<Checker>();
+            checkerslist = new CheckersList();
             base.Initialize();
         }
 
@@ -57,38 +55,8 @@ namespace Checkers
                GraphicsDevice.Viewport.Height, new Vector2(0, 0), new Rectangle(0, 0, GraphicsDevice.Viewport.Width,
 
                GraphicsDevice.Viewport.Height));
-            int w1=0, w2 = 0; int h1 = 0, h2 = 0;
-            for (int i = 0; i < 12; i++)
-            {
-                Checker checkerw = new Checker();
-                Checker checkerb = new Checker();
-                if (i < 4)
-                {
-                    w2 = 60 + i * 120;
-                    w1 = 0 + i * 120;
-                    h1 = 420;
-                    h2 = 0;
-                }
-                if ((4<=i) && (i<8))
-                {
-                    w2 = -480 + i * 120;
-                    w1 = -420 + i * 120;
-                    h1 = 360;
-                    h2 = 60;
-                
-                }
-                if ((i < 12) && (8 <= i))
-                {
-                    w2 = -900 + i * 120;
-                    w1 = -960 + i * 120;
-                    h1 = 300;
-                    h2 = 120;
-                }
-                checkerw.Initialize(Content, "Graphics\\white", new Vector2(w1, h1), Color.White);
-                whitecheckers.Add(checkerw);
-                checkerb.Initialize(Content, "Graphics\\black", new Vector2(w2, h2), Color.Red);
-                blackcheckers.Add(checkerb);
-            }
+            checkerslist.Initialize(Content);
+            
             
         }
 
@@ -127,15 +95,7 @@ namespace Checkers
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             board.Draw(spriteBatch);
-            for (int i = 0; i < whitecheckers.Count; i++)
-            {
-                whitecheckers[i].Draw(spriteBatch);
-                
-            }
-            for (int i = 0; i < blackcheckers.Count; i++)
-            {
-                blackcheckers[i].Draw(spriteBatch);
-            }
+            checkerslist.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }

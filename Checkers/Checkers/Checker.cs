@@ -12,7 +12,7 @@ namespace Checkers
         private Vector2 position;
         private Rectangle rect;
         private bool alive;
-        private Color _color;
+        private int color;
 
         public Texture2D Texture
         {
@@ -66,27 +66,27 @@ namespace Checkers
             }
         }
 
-        public void Initialize(ContentManager content ,string texturePath, Vector2 position, Color color)
+        public void Initialize(ContentManager content ,string texturePath, Vector2 position, int color)
         {
             this.position = position;
             this.rect = new Rectangle((int)position.X, (int)position.Y, 60, 60);
             this.texture = content.Load<Texture2D>(texturePath);
-            this._color = color;
+            this.color = color;
 
         }
         public int Width { get { return texture.Width; } }
         public int Height { get { return texture.Height; } }
 
-        public Color _Color
+        public int Color
         {
             get
             {
-                return _color;
+                return color;
             }
 
             set
             {
-                _color = value;
+                color = value;
             }
         }
 
@@ -96,7 +96,7 @@ namespace Checkers
             rect.Y = (int)position.Y;
 
         }
-        public void Draw (SpriteBatch sprite)
+        public void Draw (SpriteBatch sprite, Color _color)
         {
             sprite.Draw(texture, rect, _color);
         }
