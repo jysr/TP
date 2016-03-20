@@ -197,6 +197,17 @@ namespace Checkers
             //this.ultraWay3 = ultraWay3;
             //this.ultraWay4 = ultraWay4;
             rect = new Rectangle((int)position.X, (int)position.Y, 60, 60);
+            switch (ocupied)
+            {
+                case (0): break;
+                case (1):
+                    this.checker = content.Load<Texture2D>("Graphics\\white");
+                    break;
+                case (2):
+                    this.checker = content.Load<Texture2D>("Graphics\\black");
+                    break;
+
+            }
         }
         public void Initiazlize(ContentManager content, string name, int ocupied, Vector2 position)
         {
@@ -232,15 +243,17 @@ namespace Checkers
             
             rect = new Rectangle((int)position.X, (int)position.Y, 60, 60);
         }
-       
+
         public void Draw(SpriteBatch sprite)
         {
             if (this.border)
             {
                 sprite.Draw(texture, rect, Color.Yellow);
             }
-            if (checker != null)
-            sprite.Draw(checker, rect, Color.White);
+            switch (ocupied) {
+                case (1):  sprite.Draw(checker, rect, Color.White); break;
+                case (2): sprite.Draw(checker, rect, Color.White); break;
+        }
            
         }
         public void OnClick(Cell[,] Field)
@@ -283,12 +296,14 @@ namespace Checkers
                         if (this.ocupied == 2)
                         {
                             Field[i, j].border = true;
-                            if (j-1 > 0)
-                            if (i + 1 < 8)
-                                Field[i - 1, j + 1].border = true;
                             if (i - 1 > -1)
-                                Field[i - 1, j - 1].border = true;
-                            break;
+                            {
+                                Field[i - 1, j].border = true;
+
+                                if (j - 1 > -1)
+                                    Field[i - 1, j - 1].border = true;
+                                break;
+                            }
                         }
                     }
                 }
