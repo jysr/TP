@@ -385,41 +385,43 @@ public bool UltraWay4
                 }
             }
 
-                    for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 4; j++)
-                {
-                    if (this.name != previousCell && this.border)
-                    {
-                        if (this.ocupied == 0)
-                        {
 
-                            if (cell.Ocupied == 1)
+            if (this.name != previousCell && this.border)
+            {
+                if (this.ocupied == 0)
+                {
+
+                    if (cell.Ocupied == 1)
+                    {
+                        cell.Ocupied = 0;
+                        this.ocupied = 1;
+                    }
+                    if (cell.Ocupied == 2)
+                    {
+                        cell.Ocupied = 0;
+                        this.ocupied = 2;
+                    }
+                }
+            }
+            
+                    for (int i = 0; i < 8; i++)
+                    {
+                        for (int j = 0; j < 4; j++)
+                        {
+                            if ((int.Parse(cell.Name) + int.Parse(this.name))/2 == int.Parse(Field[i,j].name))
                             {
-                                cell.Ocupied = 0;
-                                this.ocupied = 1;
-                            }
-                            if (cell.Ocupied == 2)
-                            {
-                                cell.Ocupied = 0;
-                                this.ocupied = 2;
+                                Field[i, j].Ocupied = 0;
                             }
                      
                         }
-                        else
-                        {
-                            break;
-                        }
+                     
                     }
-                    else
-                    {
-                        break;
-                    }
+                  
 
                 }
             }
         }
 
-    }
-}
+    
+
 
