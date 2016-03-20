@@ -24,3 +24,5 @@ C:\GitHub\TP\Checkers\Checkers\obj\x86\Debug\Checkers.csprojResolveAssemblyRefer
 C:\GitHub\TP\Checkers\Checkers\obj\x86\Debug\Checkers.exe
 C:\GitHub\TP\Checkers\Checkers\obj\x86\Debug\Checkers.pdb
 C:\GitHub\TP\Checkers\Checkers\bin\Windows\Debug\Content\Graphics\Field.xnb
+C:\GitHub\TP\Checkers\Checkers\bin\Windows\Debug\Content\Graphics\black.xnb
+C:\GitHub\TP\Checkers\Checkers\bin\Windows\Debug\Content\Graphics\white.xnb
