@@ -1,0 +1,78 @@
+<html>
+<head>
+  <style>
+    div {
+      padding: 0px;
+      margin: 0px;
+    }
+    
+    .board {
+      width: 640px;
+      height: 640px;
+      border: 1px solid #777;
+      position: relative;
+    }
+    
+    .square {
+      width: 80px;
+      height: 80px; 
+      float:left;
+      z-index:1;
+      position:relative;
+    }
+
+    .checker {
+      width: 40px;
+      height: 40px;
+      float:left;
+      margin: 20px 0px 0px 20px;
+      position: relative;
+      z-index:10;
+    }
+
+    .square_black {
+      background-color: #000;    
+    }
+
+    .square_white {
+      background-color: #EFEAD1;    
+    }
+
+    .square_highlighted {
+      background-color: #fefefe;    
+    }
+
+    .black {
+      background-color: #ff0000;    
+    }
+
+    .white {
+      background-color: #358F39;    
+    }
+	
+	.queen {
+	  border: 3px double blue;
+	}
+
+  </style>
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="jquery-ui.min.js"></script>
+  
+ <script type="text/javascript" src="socket.io.js"></script>
+  <script type="text/javascript" src="checkers.js"></script>
+  <script type="text/javascript">
+      $('.start').live("click", function (e) {
+        $('.board').show();
+        $('.start').hide();
+        $('#game_id').hide();
+      Checkers.init("board", "white", $('#game_id').val()); 
+
+      });
+  </script>
+</head>
+<body>
+  <div id="board" class="board" style="display: none;"></div>
+  <input type="textbox" value="" id="game_id"></input>
+  <div id="start" class="start"><a href="#">start</a></div>
+</body>
+</html>
