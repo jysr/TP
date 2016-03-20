@@ -28,6 +28,15 @@
       <Output>C:\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\Content\Graphics\white.xnb</Output>
       <Time>2016-03-20T01:52:27.8102008+03:00</Time>
     </Item>
+    <Item>
+      <Source>Graphics\border.jpg</Source>
+      <Name>Graphics\border</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\GitHub\TP\CheckersContent\CheckersContent\CheckersContent\bin\x86\Debug\Content\Graphics\border.xnb</Output>
+      <Time>2016-03-20T04:53:24.4801934+03:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{AAA4E22D-12A6-488A-837C-B61ADE1CAD22}</ContentProjectGUID>

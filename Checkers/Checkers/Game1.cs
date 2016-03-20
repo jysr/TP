@@ -16,12 +16,13 @@ namespace Checkers
         SpriteBatch spriteBatch;
         Background board;
         CheckersList checkerslist;
+        PlayingField playingField;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = 480;
-            graphics.PreferredBackBufferHeight =480;
+            graphics.PreferredBackBufferHeight = 480;
             IsMouseVisible = true;
         }
 
@@ -36,6 +37,7 @@ namespace Checkers
             // TODO: Add your initialization logic here
             board = new Background();
             checkerslist = new CheckersList();
+            playingField = new PlayingField();
             base.Initialize();
         }
 
@@ -51,10 +53,11 @@ namespace Checkers
             // TODO: use this.Content to load your game content here
 
             board.Initialze(Content, "Graphics\\Field", GraphicsDevice.Viewport.Width,
-            
-               GraphicsDevice.Viewport.Height, new Vector2(0, 0), new Rectangle(0, 0, GraphicsDevice.Viewport.Width,
 
+               GraphicsDevice.Viewport.Height, new Vector2(0, 0), new Rectangle(0, 0, GraphicsDevice.Viewport.Width,
+           
                GraphicsDevice.Viewport.Height));
+            playingField.Initialize(Content);
             checkerslist.Initialize(Content);
             
             
@@ -95,6 +98,7 @@ namespace Checkers
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             board.Draw(spriteBatch);
+            playingField.Draw(spriteBatch);
             checkerslist.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);

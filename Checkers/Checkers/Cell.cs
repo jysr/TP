@@ -7,10 +7,11 @@ namespace Checkers
 {
     class Cell
     {
-        enum Color { white, black, none }
-        Color color;
+        enum ColorOfPl { white, black, none }
+        ColorOfPl colorOfPl;
         private string name;
-
+        Rectangle rect;
+        Texture2D texture;
         public string Name
         {
             get { return name; }
@@ -37,7 +38,7 @@ namespace Checkers
             get { return border; }
             set { border = value; }
         }
-        #region Diagonals;
+       /* #region Diagonals;
         // A1 - H8
         private bool goldWay;
 
@@ -54,7 +55,7 @@ namespace Checkers
             get { return doubleWay1; }
             set { doubleWay1 = value; }
         }
-        // H2 - A8
+        // H2 - B8
         private bool  doubleWay2;
 
         public bool DoubleWay2
@@ -133,18 +134,18 @@ namespace Checkers
 
         #endregion
 
-        #endregion
+        #endregion */
         public void Update ()
         {
-            switch(color)
+            switch(colorOfPl)
             {
-                case Color.white :
+                case ColorOfPl.white :
                     Ocupied = 1;
                     break;
-                case Color.black:
+                case ColorOfPl.black:
                     Ocupied = 2; 
                     break;
-                case Color.none:
+                case ColorOfPl.none:
                     Ocupied = 0;
                     break;
             }
@@ -153,17 +154,47 @@ namespace Checkers
         {
             if (element == "Graphics\\white")//WhitePlayer Ocupied
             {
-                color = Color.white;
+                colorOfPl = ColorOfPl.white;
             }
             if (element == "Graphics\\black")//BlackOcupied
             {
-                color = Color.black;
+                colorOfPl = ColorOfPl.black;
             }
             if (element == null)//No one
             {
-                color = Color.none;
+                colorOfPl = ColorOfPl.none;
             }
         }
+        public void Initiazlize(ContentManager content, string name, int ocupied, Vector2 position)
+        {
+            
+            this.name = name;
+            this.ocupied = ocupied;
+            this.queen = false;
+            this.border = true;
+            texture = content.Load<Texture2D>("Graphics\\border");
+            //this.goldWay = goldWay;
 
+            //this.doubleWay1 = DoubleWay1;
+            //this.doubleWay2 = DoubleWay2;
+            //this.tripleWay1 = tripleWay1;
+            //this.tripleWay2 = tripleWay2;
+            //this.tripleWay3 = tripleWay3;
+            //this.tripleWay4 = tripleWay4;
+            //this.ultraWay1 = ultraWay1;
+            //this.ultraWay2 = ultraWay2;
+            //this.ultraWay3 = ultraWay3;
+            //this.ultraWay4 = ultraWay4;
+            rect = new Rectangle((int)position.X, (int)position.Y, 60, 60);
+        }
+        public void Update (int ocpied, bool border)
+        {
+
+        }
+        public void Draw (SpriteBatch sprite)
+        {
+            if(border)
+            sprite.Draw(texture, rect, Color.Yellow);
+        }
     }
 }
