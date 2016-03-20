@@ -290,14 +290,48 @@ namespace Checkers
                             Field[i, j].border = true;
                             if (i + 1 < 8)
                             {
-                                if (Field[i + 1, j].ocupied == 0)
-                                Field[i + 1, j].border = true;
-
-                                if ((j - 1 > -1) && Field[i + 1, j-1].ocupied == 0)
-                                    Field[i + 1, j - 1].border = true;
+                                if (Field[i + 1, j].ocupied == 2 || (Field[i + 1, j - 1].ocupied == 2 && (j - 1 > -1)))
+                                {
+                                    if (Field[i + 1, j].ocupied == 2)
+                                        Field[i + 2, j + 1].border = true;
+                                    else
+                                        Field[i + 2, j - 1].border = true;
+                                }
+                                else
+                                {
+                                    Field[i + 1, j].border = true;
+                                          if ((j - 1 > -1))
+                                        Field[i + 1, j - 1].border = true;
+                                }
                                 break;
                             }
+                            
+                                
+                            }
+                        if (this.ocupied == 2)
+                        {
+                            Field[i, j].border = true;
+                            if (i - 1 > -1)
+                            {
+                                if (Field[i - 1, j].ocupied == 1 || (Field[i - 1, j - 1].ocupied == 1 && (j + 1 < 4)))
+                                {
+                                    if (Field[i - 1, j].ocupied == 1)
+                                        Field[i - 2, j + 1].border = true;
+                                    else
+                                        Field[i - 2, j - 2].border = true;
+                                }
+                                else
+                                {
+                                    Field[i - 1, j].border = true;
+                                          if ((j + 1 < 4))
+                                        Field[i - 1, j - 1].border = true;
+                                }
+                                break;
+                            }
+
+
                         }
+
                         if (this.ocupied == 2)
                         {
                             Field[i, j].border = true;
