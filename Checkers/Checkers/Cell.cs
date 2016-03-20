@@ -271,6 +271,10 @@ namespace Checkers
         {
             int line = 0;
             int stolb = 0;
+            foreach (Cell c in Field)
+            {
+                c.border = false;
+            }
             border = true;
             for (int i = 0; i < 8; i++)
             {
@@ -286,9 +290,10 @@ namespace Checkers
                             Field[i, j].border = true;
                             if (i + 1 < 8)
                             {
+                                if (Field[i + 1, j].ocupied == 0)
                                 Field[i + 1, j].border = true;
 
-                                if (j - 1 > -1)
+                                if ((j - 1 > -1) && Field[i + 1, j-1].ocupied == 0)
                                     Field[i + 1, j - 1].border = true;
                                 break;
                             }
@@ -298,10 +303,11 @@ namespace Checkers
                             Field[i, j].border = true;
                             if (i - 1 > -1)
                             {
-                                Field[i - 1, j].border = true;
+                                if (Field[i - 1, j].ocupied == 0)
+                                    Field[i - 1, j].border = true;
 
-                                if (j - 1 > -1)
-                                    Field[i - 1, j - 1].border = true;
+                                if ((j + 1 < 4) &&  (Field[i - 1, j+1].ocupied == 0))
+                                    Field[i - 1, j + 1].border = true;
                                 break;
                             }
                         }
