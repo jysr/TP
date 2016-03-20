@@ -316,7 +316,7 @@ namespace Checkers
                                 if (Field[i - 1, j].ocupied == 1 || ((j - 1 > -1) && Field[i - 1, j - 1].ocupied == 1))
                                 {
                                     if (Field[i - 1, j].ocupied == 1 && (j + 2 < 4))
-                                        Field[i - 2, j + 1].border = true;
+                                        Field[i - 2, j].border = true;
                                     if ((j - 1 > -1) && Field[i + 1, j - 1].ocupied == 1)
                                         Field[i - 2, j].border = true;
                                 }
