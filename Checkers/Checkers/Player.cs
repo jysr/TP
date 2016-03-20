@@ -7,10 +7,7 @@ namespace Checkers
 {
     class Player
     {
-<<<<<<< HEAD
-  
 
-=======
         private string name;
         private bool screenIsLocked;
         private int checkersColor;
@@ -53,6 +50,5 @@ namespace Checkers
                 checkersColor = value;
             }
         }
->>>>>>> origin/master
     }
 }
