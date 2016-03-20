@@ -27,3 +27,6 @@ C:\GitHub\TP\Checkers\Checkers\bin\Windows\Debug\Content\Graphics\black.xnb
 C:\GitHub\TP\Checkers\Checkers\bin\Windows\Debug\Content\Graphics\white.xnb
 C:\GitHub\TP\Checkers\Checkers\bin\Windows\Debug\Content\Graphics\Field.xnb
 C:\GitHub\TP\Checkers\Checkers\bin\Windows\Debug\Content\Graphics\border.xnb
+C:\TP\Checkers\Checkers\obj\x86\Debug\Checkers.exe
+C:\TP\Checkers\Checkers\obj\x86\Debug\Checkers.pdb
+C:\TP\Checkers\Checkers\obj\x86\Debug\Checkers.csprojResolveAssemblyReference.cache

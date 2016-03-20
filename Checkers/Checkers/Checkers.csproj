@@ -43,6 +43,7 @@
     <Compile Include="Cell.cs" />
     <Compile Include="Checker.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="PlayingField.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
