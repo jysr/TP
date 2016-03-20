@@ -165,6 +165,28 @@ namespace Checkers
                 colorOfPl = ColorOfPl.none;
             }
         }
+        public Cell(ContentManager content, string name, int ocupied, Vector2 position)
+        {
+
+            this.name = name;
+            this.ocupied = ocupied;
+            this.queen = false;
+            this.border = true;
+            texture = content.Load<Texture2D>("Graphics\\border");
+            //this.goldWay = goldWay;
+
+            //this.doubleWay1 = DoubleWay1;
+            //this.doubleWay2 = DoubleWay2;
+            //this.tripleWay1 = tripleWay1;
+            //this.tripleWay2 = tripleWay2;
+            //this.tripleWay3 = tripleWay3;
+            //this.tripleWay4 = tripleWay4;
+            //this.ultraWay1 = ultraWay1;
+            //this.ultraWay2 = ultraWay2;
+            //this.ultraWay3 = ultraWay3;
+            //this.ultraWay4 = ultraWay4;
+            rect = new Rectangle((int)position.X, (int)position.Y, 60, 60);
+        }
         public void Initiazlize(ContentManager content, string name, int ocupied, Vector2 position)
         {
             
