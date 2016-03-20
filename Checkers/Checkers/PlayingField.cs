@@ -9,7 +9,7 @@ namespace Checkers
     class PlayingField
     {
          Cell[,] Field;
-        
+        string previousCell;
         public void Initialize(ContentManager Content)
         {
              Field = new Cell[,] {
@@ -62,7 +62,12 @@ namespace Checkers
         public void Update() {
             foreach (Cell c in Field)
             {
-                c.Update(Field);
+              
+                    c.Update(Field, previousCell);
+                if (c.Rect.Contains(new Point(Mouse.GetState().X, Mouse.GetState().Y)) && Mouse.GetState().LeftButton == ButtonState.Pressed)
+                {
+                    previousCell = c.Name;
+                }
             }
         }
         public void Draw (SpriteBatch sprite, ContentManager cm)
@@ -72,6 +77,7 @@ namespace Checkers
                 cell.Draw(sprite, cm);
             } 
         }
+
     }
 
 

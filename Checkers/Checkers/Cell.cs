@@ -13,7 +13,7 @@ namespace Checkers
         Rectangle rect;
         Texture2D texture;
         Texture2D checker;
-        string previousCell;
+
         public delegate void ElementClicked(Cell element);
         public event ElementClicked clickEvent;
 
@@ -43,109 +43,123 @@ namespace Checkers
             get { return border; }
             set { border = value; }
         }
-        /* #region Diagonals;
-         // A1 - H8
-         private bool goldWay;
 
-         public bool GoldWay
-         {
-             get { return goldWay; }
-             set { goldWay = value; }
-         }
-         // G1 - A7
-         private bool doubleWay1;
-
-         public bool DoubleWay1
-         {
-             get { return doubleWay1; }
-             set { doubleWay1 = value; }
-         }
-         // H2 - B8
-         private bool  doubleWay2;
-
-         public bool DoubleWay2
-         {
-             get { return doubleWay2; }
-             set { doubleWay2 = value; }
-         }
-         #region tripleWay
-         // C1 - A3
-         private bool tripleWay1;
-
-         public bool TripleWay1
-         {
-             get { return tripleWay1; }
-             set { tripleWay1 = value; }
-         }
-         // A3 - F8
-         private bool tripleWay2;
-
-         public bool TripleWay2
-         {
-             get { return tripleWay2; }
-             set { tripleWay2 = value; }
-         }
-         // F8 - H6
-         private bool tripleWay3;
-
-         public bool TripleWay3
-         {
-             get { return tripleWay3; }
-             set { tripleWay3 = value; }
-         }
-         // H6 - C1
-         private bool tripleWay4;
-
-         public bool TripleWay4
-         {
-             get { return tripleWay4; }
-             set { tripleWay4 = value; }
-         }
-         #endregion
-         #region ultraWay
-         // A5 - D8
-         private bool ultraWay1;
-
-         public bool UltraWay1
-         {
-             get { return ultraWay1; }
-             set { ultraWay1 = value; }
-         }
-         // D8 - H4
-         private bool ultraWay2;
-
-         public bool UltraWay2
-         {
-             get { return ultraWay2; }
-             set { ultraWay2 = value; }
-         }
-         // H4 - E1
-         private bool ultraWay3;
-
-         public bool UltraWay3
-         {
-             get { return ultraWay3; }
-             set { ultraWay3 = value; }
-         }
-
-         // E1 - A5
-         private bool ultraWay4;
-
-         public bool UltraWay4
-         {
-             get { return ultraWay4; }
-             set { ultraWay4 = value; }
-         }
-
-         #endregion
-
-         #endregion */
-        public void Update(Cell[,] Field)
+        public Rectangle Rect
         {
-            if (rect.Contains(new Point(Mouse.GetState().X, Mouse.GetState().Y)) && Mouse.GetState().LeftButton == ButtonState.Pressed)
+            get
+            {
+                return rect;
+            }
+
+            set
+            {
+                rect = value;
+            }
+        }
+
+        /* #region Diagonals;
+// A1 - H8
+private bool goldWay;
+
+public bool GoldWay
+{
+    get { return goldWay; }
+    set { goldWay = value; }
+}
+// G1 - A7
+private bool doubleWay1;
+
+public bool DoubleWay1
+{
+    get { return doubleWay1; }
+    set { doubleWay1 = value; }
+}
+// H2 - B8
+private bool  doubleWay2;
+
+public bool DoubleWay2
+{
+    get { return doubleWay2; }
+    set { doubleWay2 = value; }
+}
+#region tripleWay
+// C1 - A3
+private bool tripleWay1;
+
+public bool TripleWay1
+{
+    get { return tripleWay1; }
+    set { tripleWay1 = value; }
+}
+// A3 - F8
+private bool tripleWay2;
+
+public bool TripleWay2
+{
+    get { return tripleWay2; }
+    set { tripleWay2 = value; }
+}
+// F8 - H6
+private bool tripleWay3;
+
+public bool TripleWay3
+{
+    get { return tripleWay3; }
+    set { tripleWay3 = value; }
+}
+// H6 - C1
+private bool tripleWay4;
+
+public bool TripleWay4
+{
+    get { return tripleWay4; }
+    set { tripleWay4 = value; }
+}
+#endregion
+#region ultraWay
+// A5 - D8
+private bool ultraWay1;
+
+public bool UltraWay1
+{
+    get { return ultraWay1; }
+    set { ultraWay1 = value; }
+}
+// D8 - H4
+private bool ultraWay2;
+
+public bool UltraWay2
+{
+    get { return ultraWay2; }
+    set { ultraWay2 = value; }
+}
+// H4 - E1
+private bool ultraWay3;
+
+public bool UltraWay3
+{
+    get { return ultraWay3; }
+    set { ultraWay3 = value; }
+}
+
+// E1 - A5
+private bool ultraWay4;
+
+public bool UltraWay4
+{
+    get { return ultraWay4; }
+    set { ultraWay4 = value; }
+}
+
+#endregion
+
+#endregion */
+        public void Update(Cell[,] Field, string previousCell)
+        {
+            if (Rect.Contains(new Point(Mouse.GetState().X, Mouse.GetState().Y)) && Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
                 //This element was clicked
-                OnClick(Field, rect);
+                OnClick(Field, Rect, previousCell);
                 
 
             }
@@ -197,7 +211,7 @@ namespace Checkers
             //this.ultraWay2 = ultraWay2;
             //this.ultraWay3 = ultraWay3;
             //this.ultraWay4 = ultraWay4;
-            rect = new Rectangle((int)position.X, (int)position.Y, 60, 60);
+            Rect = new Rectangle((int)position.X, (int)position.Y, 60, 60);
             
         }
         public void LoadContent(ContentManager content)
@@ -246,33 +260,33 @@ namespace Checkers
             //this.ultraWay3 = ultraWay3;
             //this.ultraWay4 = ultraWay4;
             
-            rect = new Rectangle((int)position.X, (int)position.Y, 60, 60);
+            Rect = new Rectangle((int)position.X, (int)position.Y, 60, 60);
         }
 
         public void Draw(SpriteBatch sprite, ContentManager content)
         {
             if (this.border)
             {
-                sprite.Draw(texture, rect, Color.Yellow);
+                sprite.Draw(texture, Rect, Color.Yellow);
             }
            
                 switch (ocupied) {
                 case (1):
                         this.checker = content.Load<Texture2D>("Graphics\\white");
-                        sprite.Draw(checker, rect, Color.White); break;
+                        sprite.Draw(checker, Rect, Color.White); break;
                 case (2):
                         this.checker = content.Load<Texture2D>("Graphics\\black");
-                        sprite.Draw(checker, rect, Color.White); break;
+                        sprite.Draw(checker, Rect, Color.White); break;
         }
            
         }
-        public void OnClick(Cell[,] Field, Rectangle rect)
+        public void OnClick(Cell[,] Field, Rectangle rect, string previousCell)
         {
             if (ocupied == 1 || ocupied == 2)
             {
                 Coloring(Field);
                
-                  previousCell = this.name;
+                
             }
             else
             {
@@ -287,6 +301,7 @@ namespace Checkers
             {
                 c.border = false;
             }
+
             border = true;
             for (int i = 0; i < 8; i++)
             {
@@ -300,6 +315,7 @@ namespace Checkers
                         if (this.ocupied == 1)
                         {
                             Field[i, j].border = true;
+                           
                             if ((i + 1 < 8)&& (Field[i + 1, j].ocupied != 1 || ((j - 1 > -1) && Field[i + 1, j - 1].ocupied != 1)))
                             {
                                 if (Field[i + 1, j].ocupied == 2 || ((j - 1 > -1) && Field[i + 1, j - 1].ocupied == 2))
@@ -323,6 +339,7 @@ namespace Checkers
                         if (this.ocupied == 2)
                         {
                             Field[i, j].border = true;
+                           
                             if ((i -  1 > -1) && (Field[i - 1, j].ocupied != 2 || ((j - 1 > -1) && Field[i - 1, j - 1].ocupied != 2)))
                             {
                                 if (Field[i - 1, j].ocupied == 1 || ((j - 1 > -1) && Field[i - 1, j - 1].ocupied == 1))
@@ -338,6 +355,7 @@ namespace Checkers
                                     if ((j + 1 < 4))
                                         Field[i - 1, j+1].border = true;
                                 }
+                                
                                 break;
                             }
 
