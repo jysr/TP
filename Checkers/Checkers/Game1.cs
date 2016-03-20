@@ -15,8 +15,10 @@ namespace Checkers
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Background board;
-        CheckersList checkerslist;
+        //CheckersList checkerslist;
         PlayingField playingField;
+        public delegate void OnClick();
+        public event OnClick click;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -36,7 +38,7 @@ namespace Checkers
         {
             // TODO: Add your initialization logic here
             board = new Background();
-            checkerslist = new CheckersList();
+           // checkerslist = new CheckersList();
             playingField = new PlayingField();
             base.Initialize();
         }
@@ -58,7 +60,7 @@ namespace Checkers
            
                GraphicsDevice.Viewport.Height));
             playingField.Initialize(Content);
-            checkerslist.Initialize(Content);
+          //  checkerslist.Initialize(Content);
             
             
         }
@@ -81,7 +83,7 @@ namespace Checkers
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            playingField.Update();
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -99,7 +101,7 @@ namespace Checkers
             spriteBatch.Begin();
             board.Draw(spriteBatch);
             playingField.Draw(spriteBatch);
-            checkerslist.Draw(spriteBatch);
+         //   checkerslist.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }

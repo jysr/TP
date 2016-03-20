@@ -13,7 +13,7 @@ namespace Checkers
         private Rectangle rect;
         private bool alive;
         private int color;
-
+        
         public Texture2D Texture
         {
             get
@@ -100,5 +100,6 @@ namespace Checkers
         {
             sprite.Draw(texture, rect, _color);
         }
+        
     }
 }
