@@ -13,6 +13,7 @@ namespace Checkers
         Rectangle rect;
         Texture2D texture;
         Texture2D checker;
+        string previousCell;
         public delegate void ElementClicked(Cell element);
         public event ElementClicked clickEvent;
 
@@ -144,7 +145,7 @@ namespace Checkers
             if (rect.Contains(new Point(Mouse.GetState().X, Mouse.GetState().Y)) && Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
                 //This element was clicked
-                OnClick(Field);
+                OnClick(Field, rect);
                 
 
             }
@@ -197,6 +198,10 @@ namespace Checkers
             //this.ultraWay3 = ultraWay3;
             //this.ultraWay4 = ultraWay4;
             rect = new Rectangle((int)position.X, (int)position.Y, 60, 60);
+            
+        }
+        public void LoadContent(ContentManager content)
+        {
             switch (ocupied)
             {
                 case (0): break;
@@ -244,27 +249,34 @@ namespace Checkers
             rect = new Rectangle((int)position.X, (int)position.Y, 60, 60);
         }
 
-        public void Draw(SpriteBatch sprite)
+        public void Draw(SpriteBatch sprite, ContentManager content)
         {
             if (this.border)
             {
                 sprite.Draw(texture, rect, Color.Yellow);
             }
-            switch (ocupied) {
-                case (1):  sprite.Draw(checker, rect, Color.White); break;
-                case (2): sprite.Draw(checker, rect, Color.White); break;
+           
+                switch (ocupied) {
+                case (1):
+                        this.checker = content.Load<Texture2D>("Graphics\\white");
+                        sprite.Draw(checker, rect, Color.White); break;
+                case (2):
+                        this.checker = content.Load<Texture2D>("Graphics\\black");
+                        sprite.Draw(checker, rect, Color.White); break;
         }
            
         }
-        public void OnClick(Cell[,] Field)
+        public void OnClick(Cell[,] Field, Rectangle rect)
         {
             if (ocupied == 1 || ocupied == 2)
             {
                 Coloring(Field);
+               
+                  previousCell = this.name;
             }
             else
             {
-                //OnMove();
+                OnMove(Field, previousCell);
             }
         }
         public void Coloring(Cell[,] Field)
@@ -339,22 +351,42 @@ namespace Checkers
 
 
         }
-        public void OnMove(Cell[,] Field, Cell previousCell)
+        public void OnMove(Cell[,] Field, string previousCell)
         {
+            Cell cell;
+            cell = Field[0, 0];
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    if (this.name != previousCell.name)
+                    if (Field[i,j].name == previousCell)
+                    {
+                        cell = Field[i, j];
+                        break;
+                    }
+                }
+            }
+
+                    for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (this.name != previousCell && this.border)
                     {
                         if (this.ocupied == 0)
                         {
 
-                            if (previousCell.Ocupied == 1)
+                            if (cell.Ocupied == 1)
+                            {
+                                cell.Ocupied = 0;
                                 this.ocupied = 1;
-                            if (previousCell.Ocupied == 2)
+                            }
+                            if (cell.Ocupied == 2)
+                            {
+                                cell.Ocupied = 0;
                                 this.ocupied = 2;
-                            previousCell.Ocupied = 0;
+                            }
+                     
                         }
                         else
                         {

@@ -55,14 +55,15 @@ namespace Checkers
             // TODO: use this.Content to load your game content here
 
             board.Initialze(Content, "Graphics\\Field", GraphicsDevice.Viewport.Width,
-
+       
                GraphicsDevice.Viewport.Height, new Vector2(0, 0), new Rectangle(0, 0, GraphicsDevice.Viewport.Width,
            
                GraphicsDevice.Viewport.Height));
             playingField.Initialize(Content);
-          //  checkerslist.Initialize(Content);
-            
-            
+            playingField.LoadContent(Content);
+            //  checkerslist.Initialize(Content);
+
+
         }
 
         /// <summary>
@@ -100,7 +101,7 @@ namespace Checkers
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             board.Draw(spriteBatch);
-            playingField.Draw(spriteBatch);
+            playingField.Draw(spriteBatch, Content);
          //   checkerslist.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);

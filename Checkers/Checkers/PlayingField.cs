@@ -53,17 +53,23 @@ namespace Checkers
 
 
         }
+        public void LoadContent(ContentManager content) {
+            foreach (Cell c in Field)
+            {
+                c.LoadContent(content);
+            }
+        }
         public void Update() {
             foreach (Cell c in Field)
             {
                 c.Update(Field);
             }
         }
-        public void Draw (SpriteBatch sprite)
+        public void Draw (SpriteBatch sprite, ContentManager cm)
         {
             foreach (Cell cell in Field)
             {
-                cell.Draw(sprite);
+                cell.Draw(sprite, cm);
             } 
         }
     }
